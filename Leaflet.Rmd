@@ -1,0 +1,22 @@
+---
+title: "Leaflet"
+author: "Ck"
+date: "March 13, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Developing Data Products
+
+## Leaflet Map Example
+
+```{r}
+library(leaflet)
+longitude<-function(n=5) rnorm(n, 77.216721, 0.01)
+latitude<-function(n=5) rnorm(n, 28.644800, 0.01)
+map<-leaflet() %>% addTiles() %>% addCircles(longitude(10), latitude(10), radius = runif(10, 10, 200))
+map
+```

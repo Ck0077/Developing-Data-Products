@@ -1,0 +1,39 @@
+---
+title: "Plotly Example"
+author: "Ck"
+date: "March 15, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(knitr.table.format = "html") 
+```
+
+Plotly example of mtcars dataset
+----
+
+
+```{r}
+library(plotly)
+
+
+f <- list(
+  family = "Courier New, monospace",
+  size = 11,   color = "#6e6e6e" )
+x <- list(
+  title = "Weight (1000 lbs)",   titlefont = f )
+y <- list(
+  title = "Mileage per gallon",   titlefont = f )
+```
+
+
+
+
+Plot
+----
+```{r , echo=FALSE}
+plot_ly(mtcars, x = mtcars$wt, y=mtcars$mpg, mode="markers",showlegend=TRUE, 
+        type="scatter",color=as.factor(mtcars$cyl), size=mtcars$hp ) %>%   
+        layout(xaxis=x, yaxis=y)
+```

@@ -1,0 +1,50 @@
+Prediction on MtCars Dataset
+========================================================
+author: ck
+date: 19-March-2019
+autosize: true
+
+Content
+========================================================
+
+- Introduction
+- Analysis
+- Result
+
+Introduction
+========================================================
+
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+
+A Random Forest prediction model is generated with the goal to predict the fuel consumption based on the rest of the variables.
+
+```{r}
+library(datasets)
+head(mtcars)
+```
+
+Analysis
+========================================================
+
+```{r, echo=TRUE}
+library(caret)
+library(randomForest)
+customTrainControl <- trainControl(method = "cv", number = 10)
+carsRandomForestModelBuilder <- function() {
+  return(
+    train(
+      mpg ~ ., 
+      data = mtcars,
+      method = "rf",
+      trControl = customTrainControl
+    )
+  )
+}
+
+```
+
+Result
+========================================================
+```{r}
+carsRandomForestModelBuilder()
+```

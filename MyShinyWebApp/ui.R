@@ -9,11 +9,11 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
+# Define UI for application that displays a result in datatable as per user input. 
 shinyUI(fluidPage(
   
         
-        titlePanel("Choose a car that suits your needs"),
+        titlePanel("Mt cars data"),
         
         sidebarLayout(
                 sidebarPanel(

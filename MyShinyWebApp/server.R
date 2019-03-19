@@ -11,7 +11,7 @@ library(shiny)
 library(datasets)
 library(dplyr)
 
-# Define server logic required to draw a histogram
+# Define server logic to filter Mt cars data as per user input
 shinyServer(function(input, output) {
    
         output$table <- renderDataTable({
